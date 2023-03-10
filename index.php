@@ -27,7 +27,7 @@ include( 'admin/includes/functions.php' );
   <?php
 
   $query = 'SELECT *
-    FROM projects
+    FROM ufo_sightings
     ORDER BY date DESC';
   $result = mysqli_query( $connect, $query );
 
@@ -42,7 +42,7 @@ include( 'admin/includes/functions.php' );
     <div>
 
       <h2><?php echo $record['title']; ?></h2>
-      <?php echo $record['content']; ?>
+      <?php echo $record['location']; ?>
 
       <?php if($record['photo']): ?>
 
@@ -52,8 +52,8 @@ include( 'admin/includes/functions.php' );
 
         <p>Or by streaming the image through the image.php file:</p>
 
-        <img src="admin/image.php?type=project&id=<?php echo $record['id']; ?>&width=100&height=100">
-
+      <?php  echo '<div><img class="mainImg" alt="images depicting UFO events" src=admin/images/'. $record['photo'].'></div>'; ?>
+      <?php echo $record['photo_credit']; ?>
       <?php else: ?>
 
         <p>This record does not have an image!</p>
