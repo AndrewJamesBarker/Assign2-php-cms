@@ -62,7 +62,7 @@ $result = mysqli_query( $connect, $query );
       <td align="center"><?php echo $record['content']; ?></td>
       <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['date'] ); ?></td>
       <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['location'] ); ?></td>
-      <td align="center"><a href="sightings_photo.php?id=<?php echo $record['photo']; ?>"><i class="fa-solid fa-image"></i></a><br><br><a href="sightings_edit.php?id=<?php echo $record['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a><br><br>
+      <td align="center"><a href="sightings_photo.php?id=<?php echo $record['id']; ?>"><i class="fa-solid fa-image"></i></a><br><br><a href="sightings_edit.php?id=<?php echo $record['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a><br><br>
         <a href="sightings.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this project?');"><i class="fa-solid fa-trash"></i></a>
       </td>
     </tr>

@@ -69,7 +69,7 @@ if( isset( $_GET['id'] ) )
     
     set_message( 'Sighting photo has been deleted' );
     
-    header( 'Location: sighting.php' );
+    header( 'Location: sightings.php' );
     die();
     
   }
@@ -110,10 +110,10 @@ include 'includes/wideimage/WideImage.php';
 
   $data = base64_decode( explode( ',', $record['photo'] )[1] );
   $img = WideImage::loadFromString( $data );
-  $data = $img->resize( 200, 200, 'outside' )->crop( 'center', 'center', 200, 200 )->asString( 'jpg', 70 );
+  $data = $img->resize( 200, 200, 'outside' )->crop( 'center', 'center', 200, 200 )->asString( 'png', 70 );
 
   ?>
-  <p><img src="data:image/jpg;base64,<?php echo base64_encode( $data ); ?>" width="200" height="200"></p>
+  <p><img src="data:image/jpg;base64,<?php echo base64_encode( $data ); ?>" width="400" height="300"></p>
   <p><a href="sightings_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a></p>
 
 <?php endif; ?>
@@ -129,7 +129,7 @@ include 'includes/wideimage/WideImage.php';
   
 </form>
 
-<p><a href="sightings.php"><i class="fas fa-arrow-circle-left"></i> Return to Project List</a></p>
+<p><a href="sightings.php"><i class="fas fa-arrow-circle-left"></i> Return to Sighting List</a></p>
 
 
 <?php
