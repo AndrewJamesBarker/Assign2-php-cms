@@ -29,7 +29,6 @@ $query = 'SELECT *
 $result = mysqli_query( $connect, $query );
 
 ?>
-
 <h2>Manage Projects</h2>
 
 <table>
@@ -39,8 +38,6 @@ $result = mysqli_query( $connect, $query );
     <th align="left">Title</th>
     <th align="center">Type</th>
     <th align="center">Date</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
   <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
@@ -55,18 +52,16 @@ $result = mysqli_query( $connect, $query );
       </td>
       <td align="center"><?php echo $record['type']; ?></td>
       <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['date'] ); ?></td>
-      <td align="center"><a href="projects_photo.php?id=<?php echo $record['id']; ?>">Photo</i></a></td>
-      <td align="center"><a href="projects_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
-      <td align="center">
-        <a href="projects.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this project?');">Delete</i></a>
+      <td align="center"><a href="projects_photo.php?id=<?php echo $record['id']; ?>"><i class="fa-solid fa-image"></i></a><br><br><a href="projects_edit.php?id=<?php echo $record['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a><br><br>
+        <a href="projects.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this project?');"><i class="fa-solid fa-trash"></i></a>
       </td>
     </tr>
   <?php endwhile; ?>
 </table>
 
-<p><a href="projects_add.php"><i class="fas fa-plus-square"></i> Add Project</a></p>
+<p><a href="projects_add.php"><i class="fas fa-plus-square"></i>Add Project</a></p>
 
-
+<script src="https://kit.fontawesome.com/c54b7d85ab.js" crossorigin="anonymous"></script>
 <?php
 
 include( 'includes/footer.php' );

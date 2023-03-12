@@ -17,6 +17,11 @@ include( 'includes/header.php' );
     </a>
   </li>
   <li>
+    <a href="sightings.php">
+      Manage UFO Sightings
+    </a>
+  </li>
+  <li>
     <a href="skills.php">
       Manage Skills
     </a>
