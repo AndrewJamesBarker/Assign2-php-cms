@@ -6,7 +6,7 @@ include( 'includes/functions.php' );
 
 secure();
 
-if( !isset( $_GET['sighting_id'] ) )
+if( !isset( $_GET['id'] ) )
 {
   
   header( 'Location: sightings.php' );
@@ -44,15 +44,18 @@ if( isset( $_POST['title'] ) )
 }
 
 
-if( isset( $_GET['sighting_id'] ) )
+if( isset( $_GET['id'] ) )
 {
-  
+  $query = 'SELECT *
+  FROM ufo_sightings
+  WHERE id = '.$_GET['id'].'
+  LIMIT 1';
  
-$query = 'SELECT title, location, details, date, photo, photo_credit, encounter_description 
-    FROM ufo_sightings 
-    JOIN encounter_type ON ufo_sightings.encounter_id = encounter_type.encounter_id 
-    WHERE id = '.$_GET['id'].'
-    LIMIT 1';
+// $query = 'SELECT title, location, content, date, photo, photo_credit, encounter_description, more_info
+//     FROM ufo_sightings 
+//     JOIN encounter_type ON ufo_sightings.encounter_id = encounter_type.encounter_id 
+//     WHERE id = '.$_GET['id'].'
+//     LIMIT 1';
 
   $result = mysqli_query( $connect, $query );
 
@@ -77,11 +80,6 @@ include( 'includes/header.php' );
 
 <form method="post">
   
-  <label for="photo_credit">Photo Credit:</label>
-  <input type="text" name="photo_credit" id="photo_credit" value="<?php echo htmlentities( $record['photo_credit'] ); ?>">
-    
-  <br>
-
   <label for="title">Title:</label>
   <input type="text" name="title" id="title" value="<?php echo htmlentities( $record['title'] ); ?>">
     
@@ -92,31 +90,32 @@ include( 'includes/header.php' );
 
   <br>
 
-  <label for="title">Content:</label>
-  <input type="text" name="content" id="content" value="<?php echo htmlentities( $record['content'] ); ?>">
+  <label for="content">Content:</label>
+  <textarea type="text" name="content" id="content" rows="1"><?php echo htmlentities( $record['content'] ); ?></textarea>
     
   <br>
-  
-  <label for="location">Location:</label>
-  <textarea type="text" name="location" id="location" rows="1"><?php echo htmlentities( $record['location'] ); ?></textarea>
-  
+
   <script>
 
-  ClassicEditor
-    .create( document.querySelector( '#location' ) )
-    .then( editor => {
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
-    
-  </script>
+ClassicEditor
+  .create( document.querySelector( '#content' ) )
+  .then( editor => {
+      console.log( editor );
+  } )
+  .catch( error => {
+      console.error( error );
+  } );
   
+</script>
+  
+  <label for="location">Location:</label>
+  <input type="text" name="location" id="location" value="<?php echo htmlentities( $record['location'] ); ?>">
+    
   <br>
   
   <label for="more_info">More Info URL:</label>
-  <input type="text" name="more_info" id="more_info">
+  <input type="text" name="more_info" id="more_info" value="<?php echo htmlentities( $record['more_info'] ); ?>">
+  
     
   <br>
   
@@ -147,7 +146,7 @@ include( 'includes/header.php' );
   
 </form>
 
-<p><a href="projects.php"><i class="fas fa-arrow-circle-left"></i> Return to Sighting List</a></p>
+<p><a href="sightings.php"><i class="fas fa-arrow-circle-left"></i> Return to Sighting List</a></p>
 
 
 <?php

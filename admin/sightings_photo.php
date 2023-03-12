@@ -6,7 +6,7 @@ include( 'includes/functions.php' );
 
 secure();
 
-if( !isset( $_GET['sighting_id'] ) )
+if( !isset( $_GET['id'] ) )
 {
   
   header( 'Location: sightings.php' );
@@ -39,7 +39,7 @@ if( isset( $_FILES['photo'] ) )
 
       $query = 'UPDATE ufo_sightings SET
         photo = "data:image/'.$type.';base64,'.base64_encode( file_get_contents( $_FILES['photo']['tmp_name'] ) ).'"
-        WHERE sighting_id = '.$_GET['sighting_id'].'
+        WHERE id = '.$_GET['id'].'
         LIMIT 1';
       mysqli_query( $connect, $query );
 
@@ -55,7 +55,7 @@ if( isset( $_FILES['photo'] ) )
 }
 
 
-if( isset( $_GET['sighting_id'] ) )
+if( isset( $_GET['id'] ) )
 {
   
   if( isset( $_GET['delete'] ) )
@@ -63,7 +63,7 @@ if( isset( $_GET['sighting_id'] ) )
     
     $query = 'UPDATE ufo_sightings SET
       photo = ""
-      WHERE sighting_id = '.$_GET['sighting_id'].'
+      WHERE id = '.$_GET['id'].'
       LIMIT 1';
     $result = mysqli_query( $connect, $query );
     
@@ -76,7 +76,7 @@ if( isset( $_GET['sighting_id'] ) )
   
   $query = 'SELECT *
     FROM ufo_sightings
-    WHERE sighting_id = '.$_GET['sighting_id'].'
+    WHERE id = '.$_GET['id'].'
     LIMIT 1';
   $result = mysqli_query( $connect, $query );
   
@@ -114,7 +114,7 @@ include 'includes/wideimage/WideImage.php';
 
   ?>
   <p><img src="data:image/jpg;base64,<?php echo base64_encode( $data ); ?>" width="200" height="200"></p>
-  <p><a href="sightings_photo.php?id=<?php echo $_GET['sighting_id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a></p>
+  <p><a href="sightings_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a></p>
 
 <?php endif; ?>
 
