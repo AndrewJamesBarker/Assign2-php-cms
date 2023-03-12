@@ -134,3 +134,7 @@ input[type=submit] {
 small {
   font-size: .5em;
 }
+
+.content {
+  font-size: .6em;
+}

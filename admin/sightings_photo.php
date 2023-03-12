@@ -110,7 +110,7 @@ include 'includes/wideimage/WideImage.php';
 
   $data = base64_decode( explode( ',', $record['photo'] )[1] );
   $img = WideImage::loadFromString( $data );
-  $data = $img->resize( 200, 200, 'outside' )->crop( 'center', 'center', 200, 200 )->asString( 'png', 70 );
+  $data = $img->resize( 200, 200, 'outside' )->crop( 'center', 'center', 200, 200 )->asString( 'jpg', 70 );
 
   ?>
   <p><img src="data:image/jpg;base64,<?php echo base64_encode( $data ); ?>" width="400" height="300"></p>
