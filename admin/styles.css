@@ -1,16 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
 * {
     font-family: 'Ubuntu Condensed', sans-serif;
-    font-size: 35px;
+    font-size: 32px;
 }
 body {
   background-color: rgb(251,199,127);
 }
-
-a {
-  font-size: .9em;
-}
-
 a:link,
 a:active,
 a:hover,
@@ -46,7 +41,16 @@ td, th {
   padding: 10px;
 }
 
+.content {
+  font-size: 11px;  
+}
+
+small {
+  font-size: 14px;
+}
+
 th {
+  margin: 1em;
   white-space: nowrap;
 }
 
@@ -65,7 +69,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  font-size: .9em;
+  font-size: 14px;
   padding: 5px;
   width: 100%;
   margin: 0 0 10px 0;
@@ -75,7 +79,7 @@ select {
 
 textarea {
   border-radius: 0;
-  font-size: .9em;
+  font-size: 14px;
   padding: 5px;
   width: 100%;
   margin: 0 0 10px 0;
@@ -84,7 +88,7 @@ textarea {
 
 input {
   border-radius: 0;
-  font-size: .9em;
+  font-size: 14px;
   padding: 5px;
   width: 100%;
   margin: 0 0 10px 0;
@@ -129,12 +133,4 @@ input[type=submit] {
 
 .fa-solid{
   color: white;
-} 
-
-small {
-  font-size: .5em;
-}
-
-.content {
-  font-size: .6em;
 }

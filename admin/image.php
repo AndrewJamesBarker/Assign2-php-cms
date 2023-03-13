@@ -25,20 +25,31 @@ switch( $_GET['type'] )
     $record = mysqli_fetch_assoc( $result );
 
     if( !$record['photo'] ) $record['photo'] = $camera;
-    
-    break;
 
+     break;
+
+      case 'project':
     
+    $query = 'SELECT photo 
+      FROM projects
+      WHERE id = '.$_GET['id'].'
+      LIMIT 1';
+    $result = mysqli_query( $connect, $query );
+    $record = mysqli_fetch_assoc( $result );
+
+    if( !$record['photo'] ) $record['photo'] = $camera;
+    
+    break;  
       
 }
 
     
-  $query = 'SELECT photo 
-    FROM projects
-    WHERE id = '.$_GET['id'].'
-    LIMIT 1';
-  $result = mysqli_query( $connect, $query );
-  $record = mysqli_fetch_assoc( $result );
+  // $query = 'SELECT photo 
+  //   FROM projects
+  //   WHERE id = '.$_GET['id'].'
+  //   LIMIT 1';
+  // $result = mysqli_query( $connect, $query );
+  // $record = mysqli_fetch_assoc( $result );
 
 
 // switch( $_GET['type'] )

@@ -24,8 +24,7 @@ if( isset( $_GET['delete'] ) )
 include( 'includes/header.php' );
 
 $query = 'SELECT *
-  FROM ufo_sightings
-  ORDER BY date DESC';
+  FROM ufo_sightings';
 $result = mysqli_query( $connect, $query );
 
 // $query = 'SELECT title, location, details, date, photo, photo_credit, encounter_description 
@@ -46,20 +45,21 @@ $result = mysqli_query( $connect, $query );
     <th align="center">Content</th>
     <th align="center">Date</th>
     <th align="left">Location</th>
-   
+    <th></th>
     <th></th>
   </tr>
   <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
     <tr>
       <td align="center">
-      <img src="image.php?type=sighting&id=<?php echo $record['id']; ?>&width=300&height=300&format=inside">
+      <img src="image.php?type=sighting&id=<?php echo $record['id']; ?>&width=200&height=200&format=inside">
       </td>
       <td align="center"><?php echo $record['id']; ?></td>
       <td align="left">
         <?php echo htmlentities( $record['title'] ); ?>
         <small><?php echo $record['location']; ?></small>
       </td>
-      <td class="content" align="center"><?php echo $record['content']; ?></td>
+      <td
+       class="content" align="left"><?php echo $record['content']; ?></td>
       <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['date'] ); ?></td>
       <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['location'] ); ?></td>
       
