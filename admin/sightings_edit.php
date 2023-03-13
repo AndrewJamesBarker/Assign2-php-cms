@@ -17,20 +17,20 @@ if( !isset( $_GET['id'] ) )
 if( isset( $_POST['title'] ) )
 {
   
-  if( $_POST['title'] and $_POST['location'] )
+  if( $_POST['title']  )
   {
     
     $query = 'UPDATE ufo_sightings SET
-    
        title = "'.mysqli_real_escape_string( $connect, $_POST['title'] ).'",
-       photo_credit = "'.mysqli_real_escape_string( $connect, $_POST['photo_credit'] ).'",
        content = "'.mysqli_real_escape_string( $connect, $_POST['content'] ).'",
        location = "'.mysqli_real_escape_string( $connect, $_POST['location'] ).'",
+       more_info = "'.mysqli_real_escape_string( $connect, $_POST['more_info'] ).'",
        date = "'.mysqli_real_escape_string( $connect, $_POST['date'] ).'",
-       encounter_description = "'.mysqli_real_escape_string( $connect, $_POST['encounter_description'] ).'",
-       more_info = "'.mysqli_real_escape_string( $connect, $_POST['more_info'] ).'"
-       WHERE sighting_id = '.$_GET['sighting_id'].'
+       photo_credit = "'.mysqli_real_escape_string( $connect, $_POST['photo_credit'] ).'"
+       
+       WHERE id = '.$_GET['id'].'
        LIMIT 1';
+
 
     mysqli_query( $connect, $query );
     
@@ -143,7 +143,8 @@ ClassicEditor
   <br>
   
   <input type="submit" value="Edit Sighting">
-  
+
+
 </form>
 
 <p><a href="sightings.php"><i class="fas fa-arrow-circle-left"></i> Return to Sighting List</a></p>

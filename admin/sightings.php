@@ -39,7 +39,7 @@ $result = mysqli_query( $connect, $query );
 
 <table>
   <tr>
-    <th></th>
+  <th align="left">Photo</th>
 
     <th align="center">ID</th>
     <th align="left">Title</th>
@@ -52,7 +52,7 @@ $result = mysqli_query( $connect, $query );
   <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
     <tr>
       <td align="center">
-        <img src="image.php?type=project&id=<?php echo $record['id']; ?>&width=400&height=300&format=inside">
+      <img src="image.php?type=project&id=<?php echo $record['id']; ?>&width=300&height=300&format=inside">
       </td>
       <td align="center"><?php echo $record['id']; ?></td>
       <td align="left">
@@ -62,6 +62,7 @@ $result = mysqli_query( $connect, $query );
       <td class="content" align="center"><?php echo $record['content']; ?></td>
       <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['date'] ); ?></td>
       <td align="center" style="white-space: nowrap;"><?php echo htmlentities( $record['location'] ); ?></td>
+      
       <td align="center"><a href="sightings_photo.php?id=<?php echo $record['id']; ?>"><i class="fa-solid fa-image"></i></a><br><br><a href="sightings_edit.php?id=<?php echo $record['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a><br><br>
         <a href="sightings.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this sighting?');"><i class="fa-solid fa-trash"></i></a>
       </td>

@@ -98,10 +98,10 @@ include 'includes/wideimage/WideImage.php';
 
 ?>
 
-<h2>Edit Sighting</h2>
+<h2>Edit Sighting Photo</h2>
 
 <p>
-  Note: For best results, photos should be approximately 400 x 300 pixels.
+  Note: For best results, photos should be approximately 800 x 800 pixels.
 </p>
 
 <?php if( $record['photo'] ): ?>
@@ -113,7 +113,7 @@ include 'includes/wideimage/WideImage.php';
   $data = $img->resize( 200, 200, 'outside' )->crop( 'center', 'center', 200, 200 )->asString( 'jpg', 70 );
 
   ?>
-  <p><img src="data:image/jpg;base64,<?php echo base64_encode( $data ); ?>" width="400" height="300"></p>
+  <p><img src="data:image/jpg;base64,<?php echo base64_encode( $data ); ?>" width="200" height="200"></p>
   <p><a href="sightings_photo.php?id=<?php echo $_GET['id']; ?>&delete"><i class="fas fa-trash-alt"></i> Delete this Photo</a></p>
 
 <?php endif; ?>
