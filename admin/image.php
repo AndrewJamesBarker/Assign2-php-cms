@@ -27,22 +27,33 @@ switch( $_GET['type'] )
     if( !$record['photo'] ) $record['photo'] = $camera;
     
     break;
+
+    
       
 }
+
+    
+  $query = 'SELECT photo 
+    FROM projects
+    WHERE id = '.$_GET['id'].'
+    LIMIT 1';
+  $result = mysqli_query( $connect, $query );
+  $record = mysqli_fetch_assoc( $result );
+
 
 // switch( $_GET['type'] )
 // {
 
-//   case 'sighting':
+//   case 'project':
     
-//     $querySighting = 'SELECT photo 
-//       FROM ufo_sightings
+//     $query = 'SELECT photo 
+//       FROM projects
 //       WHERE id = '.$_GET['id'].'
 //       LIMIT 1';
-//     $resultSighting = mysqli_query( $connect, $querySighting );
-//     $recordSighting = mysqli_fetch_assoc( $result );
+//     $result = mysqli_query( $connect, $query );
+//     $record = mysqli_fetch_assoc( $result );
 
-//     if( !$recordSighting['photo'] ) $recordSighting['photo'] = $camera;
+//     if( !$record['photo'] ) $record['photo'] = $camera;
     
 //     break;
       

@@ -59,7 +59,7 @@ $result = mysqli_query( $connect, $query );
   <?php endwhile; ?>
 </table>
 
-<p><a href="projects_add.php"><i class="fas fa-plus-square"></i>Add Project</a></p>
+<p><a href="projects_add.php"><i class="fas fa-plus-square"></i> Add Project</a></p>
 
 <script src="https://kit.fontawesome.com/c54b7d85ab.js" crossorigin="anonymous"></script>
 <?php
