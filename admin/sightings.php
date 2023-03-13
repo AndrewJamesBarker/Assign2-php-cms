@@ -52,7 +52,7 @@ $result = mysqli_query( $connect, $query );
   <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
     <tr>
       <td align="center">
-      <img src="image.php?type=project&id=<?php echo $record['id']; ?>&width=300&height=300&format=inside">
+      <img src="image.php?type=sighting&id=<?php echo $record['id']; ?>&width=300&height=300&format=inside">
       </td>
       <td align="center"><?php echo $record['id']; ?></td>
       <td align="left">

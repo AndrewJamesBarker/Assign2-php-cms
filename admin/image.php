@@ -15,10 +15,10 @@ $person = 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdW
 switch( $_GET['type'] )
 {
 
-  case 'project':
+  case 'sighting':
     
     $query = 'SELECT photo 
-      FROM projects
+      FROM ufo_sightings
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
     $result = mysqli_query( $connect, $query );
@@ -29,6 +29,24 @@ switch( $_GET['type'] )
     break;
       
 }
+
+// switch( $_GET['type'] )
+// {
+
+//   case 'sighting':
+    
+//     $querySighting = 'SELECT photo 
+//       FROM ufo_sightings
+//       WHERE id = '.$_GET['id'].'
+//       LIMIT 1';
+//     $resultSighting = mysqli_query( $connect, $querySighting );
+//     $recordSighting = mysqli_fetch_assoc( $result );
+
+//     if( !$recordSighting['photo'] ) $recordSighting['photo'] = $camera;
+    
+//     break;
+      
+// }
 
 include 'includes/wideimage/WideImage.php';
 
